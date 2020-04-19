@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block body_block %}
+  {% if user.is_authenticated %}
+  <div class="margin100tp"></div>
+
+
+<!-- <img aria-hidden="false" class="user-image--FBq1F large--1tFDk" src="https://internal-cdn.amazon.com/badgephotos.amazon.com/phone-image.pl?uid=kragha" alt="Raghavendra S K's Accolades profile" title="Raghavendra S K's Accolades profile" width="150" height="200"> -->
+<div class="card text-center" id="reg">
+  <div class="card-header">
+    Registration Details
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">You registered on {{user.date_joined}}</h5>
+    <p class="card-text">Your username is {{user.username}}  and Email address is {{user.email}}.</p>
+
+  </div>
+  <div class="card-footer text-muted">
+    <a href="{% url 'walkapp:change_password' %}"><button type="button" class="btn btn-outline-danger">Change Password</button></a>
+  </div>
+</div>
+  {% endif %}
+  <div class="margin200tp"></div>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block body_block %}
+{% load static %}
+<!-- <link rel="stylesheet" href="{% static "css\index.css" %}"> -->
+
+
+  {% if not wts_list %}
+  <div class="margin100tp"></div>
+  <center>
+  <div class="jumbotron" id="alloc">
+    <h3>There is no allocation, please contact your AAM or AM</h3><br>
+    <center><a href="{% url 'export' %}" target="_blank" class="btn btn-success" title="Click only if you have completed all ASINs">Get export</a></center>
+  </div></center><br><br><br><br><br><br><br><br>
+  {% else %}
+  <div class="margin50tp"></div>
+    <div class="Listtable">
+      <table class="table table-dark" id="Listtable" >
+        <thead class="tablehead">
+          <th>ASIN</th>
+          <th>Update</th>
+          <th>View Detail</th>
+          <th>Allocation Date</th>
+          <th>Status</th>
+        </thead>
+        {% for school in wts_list %}
+        <tbody>
+          <tr><td>{{school.asin}}</td>
+          <td> <a href="{{school.id}}"class="btn btn-primary">Update</a> </td>
+          <td> <a href="{% url 'detail' school.id %}" class="btn btn-info">View Detail</a> </td>
+          <td>{{school.allocationdate}}</td>
+          <td>  <input type="radio"></td></tr>
+        </tbody>
+        {% endfor %}
+      </table>
+      <center><a href="{% url 'export' %}" target="_blank" class="btn btn-success" title="Click only if you have completed all ASINs">Get export</a></center>
+      <!-- <a href="" class="export_link">Export</a> /admin/walkapp/wts_table/export/?-->
+    </div>
+        <!-- <h2><li><a href="{{school.id}}/">{{school.asin}} </a></li></h2> -->
+<div class="margin50bt"></div>
+{% if user.is_authenticated %}
+<div class="alert alert-primary" role="alert" id="loginalert">
+  <center>You have loggedin today at {{user.last_login}}</center>
+{% endif %}
+</div>
+{% endif %}
+
+{% endblock %}

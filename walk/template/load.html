@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block body_block %}
+<div class="margin100tp"></div>
+
+<center>
+<div class="jumbotron" id="jumbo">
+  <form method="post" enctype="multipart/form-data" class="form-inline">
+  {% csrf_token %}
+  <div class="file-path-wrapper">
+    <input type="file" name="myfile">
+  </div>
+  <button type="submit" class="btn btn-warning">Upload</button>
+</div>
+</center>
+<ul>
+  <center> <li><h2>Only excel .xlsx files are allowed </h2></li> </center>
+  <center><h2>click <a href="{% url "Error" %}" id="error">here</a> to see the guidelines</h2></center>
+</ul>
+
+<div class="margin100bt"></div>
+<div class="margin200bt"></div>
+
+
+{% endblock %}

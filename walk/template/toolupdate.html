@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>WTS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static "css\tool.css" %}"/>
+  <link rel="shortcut icon" href="img/icon3.png">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12" id="C">&nbsp;
+      <a class="btn btn-outline-warning" href="{% url 'index' %}" title="Home">Home</a>
+        <!-- No property in CSS to leave space, if found please replace here between first and second anchor tag -->
+      <a class="btn btn-outline-warning" href="" target="_blank">Currently Viewing ASIN (2 out of 100) : B00BZ9QPJ0</a>
+      <a class="btn btn-outline-warning" href="" target="_blank">This is a Model Tool  </a>
+
+    </div>
+  </div>
+
+
+  <!-- SECOND ROW -->
+<div class="row">
+       <!-- FIRST COLUMN -->
+  <div class="col-sm-2" id="A"><br>
+    <center><font face="calibri"><b><h1 id="E" title="Please select the image tab to cross check guidelines">IMAGE SECTION</h1></b></font></center><br>
+         <h4><b><center>MAIN
+         </center>
+         </b></h4>
+         <center><img src="http://ecx.images-amazon.com/images/I/41Ntv-oUN+L._AA200_.jpg" class="img-thumbnail" alt="41Ntv-oUN+L">
+         </center>
+         <br><br>
+
+         <h4><b><center>PT 01
+         </center>
+         <center><img src="http://ecx.images-amazon.com/images/I/51yCRzbKseL._AA200_.jpg" class="img-thumbnail" alt="51yCRzbKseL">
+         </center>
+         <br><br>
+
+         <h4><b><center>PT 02
+         </center>
+         <center><img src="http://ecx.images-amazon.com/images/I/51B2Ahq0t7L._AA200_.jpg" class="img-thumbnail" alt="51yCRzbKseL">
+         </center>
+         <br><br>
+
+         <h4><b><center>PT 03
+         </center>
+         <center><img src="http://ecx.images-amazon.com/images/I/51nO1QZR3yL._AA200_.jpg" class="img-thumbnail" alt="51yCRzbKseL">
+         </center>
+         <br><br>
+
+         <h4><b><center>PT 04
+         </center>
+         <center><img src="http://ecx.images-amazon.com/images/I/518zfZsQUJL._AA200_.jpg" class="img-thumbnail" alt="51yCRzbKseL">
+         </center>
+         <br><br>
+         </b></h4></b></h4></b></h4></b></h4>
+  </div>
+
+         <!-- SECOND COLUMN -->
+  <div class="col-sm-10" id="B">
+    <div class="tab">
+      <button class="tablinks" onclick="opentool(event, 'Images')">Images</button>
+      <button class="tablinks" onclick="opentool(event, 'Title')">Title</button>
+      <button class="tablinks" onclick="opentool(event, 'Bullet')">Bullet Point</button>
+      <button class="tablinks" onclick="opentool(event, 'Description')">Product Description</button>
+      <button class="tablinks" onclick="opentool(event, 'Category')">Category</button>
+      <button class="tablinks" onclick="opentool(event, 'Brand')">Brand Name</button>
+      <button class="tablinks" onclick="opentool(event, 'Release')">Release Date</button>
+      <button class="tablinks" onclick="opentool(event, 'A+')">A+ Content</button>
+      <button class="tablinks" onclick="opentool(event, 'Variation')">Variation</button>
+      <button class="tablinks" onclick="opentool(event, 'Keywords')">Search Terms</button>
+      <button class="tablinks" onclick="opentool(event, 'Orphan')">Orphan ASINs</button>
+      </div>
+
+
+      <div id="Images" class="tabcontent">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-2" id="Z">Attribute Name</div>
+              <div class="col-sm-10" id="Z">ASIN DETAILS</div>
+              </div>
+          <div class="row">
+            <div class="col-sm-2" id="Y"><br>Image</div>
+              <div class="col-sm-10" id="Y"><br>
+                Kindly look into Image section<br>
+                Color: Stainless Steel <br>
+                Size : Round<br><br>
+                <input type="text" id="text1" placeholder="Is the image high resolution and zoomable" size="140" /> <br>
+                <br><input type="text" id="text2" placeholder="Does the ASIN have a MAIN image" size="140" onfocus="this.value=''" /> &nbsp;<br>
+                <br><input type="text" id="text3" placeholder="Do they show only items included in the product offer?" size="140" onfocus="this.value=''" /> &nbsp;<br>
+                <br><input type="text" id="text4" placeholder="Is the image consistent with product color and pack size?" size="140" onfocus="this.value=''" /> &nbsp;<br>
+                <br><input type="text" id="text5" placeholder="Does the image have white background?" size="140" onfocus="this.value=''" /> &nbsp;<br>
+                <br><input type="text" id="text6" placeholder="Does the Image have Borders, watermarks, text (on MAIN image), or other decorations" size="140" onfocus="this.value=''" /> &nbsp;<br>
+                <br><input type="text" id="text7" placeholder="Are there any Image place holders for Images? (with text such as 'temporary image' or 'no image available')" size="140" onfocus="this.value=''" /> &nbsp;<br>
+                <br><input type="text" id="text8" placeholder="Does the Image contain graphs of product ratings" size="140" onfocus="this.value=''" /> &nbsp;<br>
+                <br><input type="text" id="text9" placeholder="Does the Image have Promotional text such as 'sale' or 'free ship'" size="140" onfocus="this.value=''" /> &nbsp;<br>
+                <br><input type="text" id="text10" placeholder="Do they depict what a customer would expect to receive if they made a purchase? [Other products, items or accessories that are not part of the product listing; only include exactly what the customer is buying]" size="140" height="150"onfocus="this.value=''" /> </textarea>
+              </div>
+          </div>
+                    <br><br>
+                    <h1>Guidelines For your reference</h1>
+                    <ul></b></b>
+
+                     <li><p> Does the ASIN have a MAIN image</p></li>
+                     <li><p> Is the image high resolution and zoomable</p></li>
+                    <li><p>Do they show only items included in the product offer?</p></li>
+                    <li><p>Is the image consistent with product color and pack size?</p></li>
+                    <li><p>Does the image have white background?</p></li>
+                    <li><p>Does the Image have Borders, watermarks, text (on MAIN image), or other decorations</p></li>
+                    <li><p>Are there any Image place holders for Images? (with text such as "temporary image" or "no image available")</p></li>
+                    <li><p>Does the Image contain graphs of product ratings</p></li>
+                    <li><p>Does the Image have Promotional text such as "sale" or "free ship"
+                    Do they depict what a customer would expect to receive if they made a purchase? [Other products, items or accessories that are not part of the product listing; only include exactly what the customer is buying]</p></li>
+                    <b>SOURCE: Detail Page</b>
+                  </ul>
+      </div></div>
+
+
+
+
+      <div id="Title" class="tabcontent">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-2" id="Z">Attribute Name</div>
+                 <div class="col-sm-10" id="Z">ASIN DETAILS</div>
+                 </div>
+                 <div class="row">
+                   <div class="col-sm-2" id="Y"><br>Title</div>
+                     <div class="col-sm-10" id="Y"><br>
+                      All-Clad WD700162 Stainless Steel Classic Round Waffle Maker with 7 Browning Settings, 4-Section, Silver<br><br>
+                     <input type="text" id="text1" placeholder="Does the title correctly reflect the product on the detail page?" size="140"/> &nbsp;
+                     <input type="text" id="text1" placeholder="Does the title fit the general guideline of: Brand Name – Model no/style no – Product Type- Variation attributes (Size, Color, Pattern, & Hand orientation)?" size="140" onfocus="this.value=''" /> &nbsp;
+                     </div></div>
+
+                    <br><br><h1>Guidelines For your reference</h1>
+                    <ul></b></b>
+                    <li><p>Does the title correctly reflect the product on the detail page?</p></li>
+                    <li><p>Does the title fit the general guideline of: Brand Name – Model no/style no – Product Type- Variation attributes (Size, Color, Pattern, & Hand orientation)?</p></li><b>SOURCE: Detail Page/ Sable</b>
+
+
+                  </ul>
+                    </th></tr></th></tr></table></div></div><!-- title -->
+
+      <div id="Bullet" class="tabcontent"><b>
+      <table style="width:100%" class="table table-bordered"> <br>
+          <font color="black">
+            <tr>
+            <th><b>Attribute Name</b></th>
+            <th>ASIN DETAILS</th>
+           </tr>
+
+           <b><td>Bullet Points</td>
+                    <td> NONE <br><br></b>
+                        <input type="text" id="text1" size="100" placeholder="Is the content relevant to the ASIN?" onfocus="this.value=''" /> <br><br>
+
+                        <input type="text" id="text1" size="100" placeholder="Does the Bullets Include Warranty info if applicable" onfocus="this.value=''" /><br><br>
+
+                        <input type="text" id="text1" size="100" placeholder="Is the bullet point Short Crisp; no vague statements" onfocus="this.value=''" /><br><br>
+
+                        <input type="text" id="text1" size="100" placeholder="Are Numbers written as numerals (1, 2, 3, etc.)?" onfocus="this.value=''" /><br><br>
+
+                      </td></th></tr></font></table>
+                    <ul>
+                        <h1>Guidelines For your reference</h1>
+                        <li>Is the content relevant to the ASIN?<br><br></li>
+
+                        <li> Does the Bullets Include Warranty info if applicable<br><br></li>
+                        <li> Is the bullet point Short Crisp; no vague statements<br><br></li>
+                        </li>
+                        <li> Are Numbers written as numerals (1, 2, 3, etc.)?<br><br></li>
+
+                        <b>SOURCE: Detail Page / Sable </b></ul>
+
+
+      </div><!-- bullet -->
+
+      <div id="Description" class="tabcontent">
+        <table style="width:100%" class="table table-bordered"> <br>
+                     <tr>
+                 <th><b>Attribute Name</b></th>
+                 <th><b>ASIN DETAILS</th></b>
+                 </tr>
+                     <td>Product Description</td>
+                     <td>Bake amazing quality waffles with this All-Clad 99012GT round waffle maker. Perfect for weekend brunches, anytime snacks, or delicious desserts, the round-shaped waffles measure 6.5 inches in diameter by 1/2-inch thick. They offer four easy-cut sections and feature traditional pockets for holding melted butter, maple syrup, whipped cream, fresh fruits, and even savory toppings. Simply pour in the batter, close the lid, and turn the knob to choose from seven browning levels according to your taste. The waffle maker’s advanced heating technology ensures consistent baking and browning, while its steam-release system prevents condensation from building-up, which means waffles baked to golden perfection—delicately crispy on the outside and light and fluffy on the inside. The ready audible bip lets you know when the waffle maker is properly preheated, and an audible signal along with a green indicator light indicates when your waffles can be taken out of the product to be eaten. The waffle maker’s nonstick cooking surface promotes effortless release and quick, easy cleanup. Housed in polished stainless steel with a branded die-cast handle, the durable waffle maker ensures long-lasting performance while beautifully complementing All-Clad stainless-steel cookware for a cohesively eye-catching collection. Enjoy the sweeter side of life with All-Clad.
+
+                     <textarea id="text1" style="width: 85%;" placeholder="Does the content relate to product (at a high level)?" onfocus="this.value=''"></textarea>&nbsp;&nbsp;
+                     <ul>
+                      <h1>Guidelines For your reference</h1><br>
+                      <li>Does the content relate to product (at a high level)?</li><br><br>
+                      <b>SOURCE: Detail Page</b>
+                      </ul>
+                    </td></table>
+      </div>
+
+      <div id="Category" class="tabcontent"><b>
+        <table style="width:100%" class="table table-bordered"> <br>
+                 <tr>
+                 <th><b>Attribute Name</b></th>
+                 <th><b>ASIN DETAILS</th></b>
+                 </tr>
+
+                     <tr>
+                     <td>ASIN Category</td>
+                     <td>/Home & Kitchen /Categories /Kitchen & Dining /Small Appliances /Waffle Irons (289942)<br><br>
+
+                     <input type="text" id="text1" placeholder="Does vendor product appear under correct category?" size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+                     Category:
+                     </td>
+
+
+                    </font></table><br><br>
+                    <h1>Guidelines For your reference</h1>
+                    <ul></b></b>
+                    <li><p>Does vendor product appear under correct category?</p></li>
+                    <b>SOURCE: Detail Page, Browse Query Editor</b>
+
+                    </ul>
+                    </th></tr></font></th></tr></table><!-- category -->
+
+      </div>
+
+      <div id="Brand" class="tabcontent"><b>
+        <table style="width:100%" class="table table-bordered"> <br>
+                 <tr>
+                 <th><b>Attribute Name</b></th>
+                 <th><b>ASIN DETAILS</th></b>
+                 </tr>
+
+                     <tr>
+                     <td>Brand Name</td>
+                     <td> All-Clad <br><br>
+
+                     <input type="text" id="text1" placeholder="Does the product have a brand name?" size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+
+                      <input type="text" id="text1" placeholder="Is the brand name accurate/correct?  (Check 'verified brand' from Bonsai)" size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+
+                      <input type="text" id="text1" placeholder="Does the brand name match the title and image?" size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+
+                      <input type="text" id="text1" placeholder="Does the Brand hyperlink link to an Amazon Brand Store or a search result page pre-populated with the brand’s ASINs" size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+                     </td>
+                    </font></table><br><br>
+                    <h1>Guidelines For your reference</h1>
+                    <ul></b></b>
+                    <li><p>Does the product have a brand name?  Is the brand name accurate/correct?  (Check 'verified brand' from Bonsoi) </p></li>
+                    <li><p>Does the brand name match the title and image?</p></li>
+                  <li><p>Does the Brand hyperlink link to an Amazon Brand Store or a search result page pre-populated with the brand’s ASINs</p></li>
+
+                    <b>SOURCE: Detail Page, Bonsai</b>
+
+                    &nbsp;<button type="button" class="btn btn-info">View ASIN on site</button>
+
+                    </ul>
+                    </th></tr></font></th></tr></table><!-- brand -->
+      </div>
+
+      <div id="Release" class="tabcontent"> <b>
+        <table style="width:100%" class="table table-bordered"> <br>
+                 <tr>
+                 <th><b>Attribute Name</b></th>
+                 <th><b>ASIN DETAILS</th></b>
+                 </tr>
+
+                     <tr>
+                     <td>Release Date</td>
+                     <td> In Stock <br><br>
+
+                     <input type="text" id="text1" placeholder="Does the product advertise a generic or future release date, such as 12/31, but indicate it is currently buyable? " size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+
+                     </td>
+                    </font></table><br><br>
+                    <h1>Guidelines For your reference</h1>
+                    <ul></b></b>
+                    <li><p>Does the product advertise a generic or future release date, such as 12/31, but indicate it is currently buyable? Only report observation; AM would raise task to RDD activity to fix such issues.</p></li>
+                    <b>SOURCE: Detail Page</b>
+
+                    &nbsp;<button type="button" class="btn btn-info">View ASIN on site</button>
+
+                    </ul>
+                    </th></tr></font></th></tr></table>
+
+
+      </div>
+
+      <div id="A+" class="tabcontent"><b>
+        <table style="width:100%" class="table table-bordered"> <br>
+                 <tr>
+                 <th><b>Attribute Name</b></th>
+                 <th><b>ASIN DETAILS</th></b>
+                 </tr>
+
+                     <tr>
+                     <td>A+ Content</td>
+                     <td>Yes<br><br>
+
+                     <input type="text" id="text1" placeholder="Does vendor product appear under correct category?" size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+
+
+    <input type="text" id="text1" placeholder="Is the A+ Content relevant to the product on site" size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+
+                     </td>
+                    </font></table><br><br>
+                    <h1>Guidelines For your reference</h1>
+                    <ul></b></b>
+                    <li><p>Does the product have A+ Content?</p></li>
+                    <li><p>Is the A+ Content relevant to the product on site</p></li>
+                    <b>SOURCE: Detail Page</b> &nbsp;<button type="button" class="btn btn-info">View ASIN on site</button>
+
+                    </ul>
+                    </th></tr></font></th></tr></table>
+
+      </div>
+
+      <div id="Variation" class="tabcontent"><b>
+                <table style="width:100%" class="table table-bordered"> <br>
+
+ <tr>
+<input type="text" id="text1" placeholder="Variations are appropriate to the parent ASIN and not separate products all together. " size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>&nbsp;
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+
+                     <h1>Guidelines For your reference</h1>
+                    <ul></b></b>
+                    <li><p>Variations are appropriate to the parent ASIN and not separate products all together.</p></li>
+                    <b>SOURCE: Detail Page</b><br><br>
+                   <iframe src="https://rtip.amazon.com/exec/relationship-viewer?p=show_relationships&asin=B00BZ9QPJ0&marketplace=US&show_status=1&relationship_type=variation&page_size=25&.submit=Submit&.cgifields=show_deleted&.cgifields=show_internals" height="800" width="140"></iframe></tr></th></tr></table>
+
+      </div>
+
+            <div id="Orphan" class="tabcontent"><b>
+                <table style="width:100%" class="table table-bordered"> <br>
+
+ <tr>
+<input type="text" id="text1" placeholder="ASIN is not an orphan ASIN " size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>&nbsp;
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+
+                     <h1>Guidelines For your reference</h1>
+                    <ul></b></b>
+                    <li><p>ASIN is not an orphan ASIN  </p></li>
+                    <b>SOURCE: Detail Page</b><br><br>
+
+                     <iframe src="https://selection-ned.corp.amazon.com/searchResults?queryIds=B00BZ9QPJ0&attributes=asin%2Citem_name%2Cvariation_parent&merchantName=amazon_com&glField=All&vendorNameField=&isSpecificVendorSearch=false&taskId=4538068&taskName=WTS%2520Orphan&selectedTab=productInformationTab" height="800" width="1400"></iframe></tr></th></tr></table>
+
+      </div>
+
+      <div id="Keywords" class="tabcontent"><b>
+<table style="width:100%" class="table table-bordered"> <br>
+                 <tr>
+                 <th><b>Attribute Name</b></th>
+                 <th><b>ASIN DETAILS</th></b>
+                 </tr>
+
+                     <tr>
+                     <td>Keywords</td>
+                     <td>all clad waffle maker;commercial waffle makers;waffle maker;waffle;waffle irons;belgium waffle makers;waffle iron;classic waffle maker;belgian waffle iron;waflera;waffle makers;waffle irons belgian;wafflemaker;waffle machine;krups waffle maker;belgian waffle maker;classic waffle iron;small waffle maker;square waffle maker;walfal maker;kids waffle maker;waffel maker;waffles maker;belgian waffle makers;belgium waffle maker;belgian waffle<br><br>
+
+                     <input type="text" id="text1" placeholder="Are there any keywords for this ASIN? (if no, add some) " size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+
+                      <input type="text" id="text1" placeholder="Is there multiple variants of the same word, perhaps with different spelling? (Delete)" size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+
+                     <input type="text" id="text1" placeholder="Does the ASIN have a leaf node?" size="150" onfocus="this.value=''" /> &nbsp;
+                     <button align="right" type="button" class="btn btn-success btn-xs">YES</button></center>
+                     <button type="button" class="btn btn-danger btn-xs">No</button><br> <br>
+                     </td>
+                    </font></table><br><br>
+                    <h1>Guidelines For your reference</h1>
+                    <ul></b></b>
+                    <li><p>Are there any keywords for this ASIN? (if no, add some)?</p></li>
+                    <li><p>Is there multiple variants of the same word, perhaps with different spelling? (Delete)</p></li>
+                    <li><p>Does the ASIN have a leaf node?</p></li>
+                    <b>SOURCE: Selection Central,Detail Page, browse browser tool</b>
+
+                    </ul>
+                    </th></tr></font></th></tr></table>
+
+
+
+
+
+
+
+      </div>
+      </div></font><!-- menu2 -->
+
+
+
+
+
+
+
+
+  </div>
+</div>
+</div>
+
+
+
+<!-- <div class="main"></div> -->
+<script type="text/javascript" src="{% static "js\tool.js"  %}">
+
+</script>
+</body>
+</head>
+</html>

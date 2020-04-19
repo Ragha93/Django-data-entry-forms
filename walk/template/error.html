@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block body_block %}
+
+<div class="margin100tp"></div>
+
+
+<div class="alert alert-dismissable alert-danger">
+<button class="close" data-dismiss="alert" type="button">×</button>
+<h4>You might have missed to follow the below mentioned criteria:</h4>
+<ol>
+<li><h3></h3></li><br>
+<li>ASINs must be unique.</li>
+<li>ASINS should be 10 digits</li>
+<li>All the fields in the template should be filled, do not leave any column empty</li>
+<li>If any column comes in empty, please fill null inside</li>
+<li>You have uploaded incorrect file or file format</li><br><br><br>
+<li><h4>Please recheck your template before uploading.click <a href="{% url 'upload' %}" class="alert-link">here</a> to reupload the file. </h4></li>
+</ol>
+</div>
+<div class="margin50bt"></div>
+</div>
+{% endblock %}

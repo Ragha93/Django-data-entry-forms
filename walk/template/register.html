@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body_block %}<br>
+{% load static %}
+  <div class="margin50tp"></div>
+
+  {% if registered %}
+  <div class="container">
+    <div class="jumbotron">
+      <h3>Thanks for Registering!!! <br><br> Please contact the tool owner...</h3>
+    </div>
+      {% else %}
+    <center><div class="jumbotron" id="jumbo">
+      <h3>Register Here</h3>
+      <hr class="my-4">
+            <form method="post">
+            {% csrf_token %}
+            {{registerinfo.as_p}}
+            {{otherip.as_p}}<br>
+            <input type="submit" class="btn btn-primary" value="Register">
+          </form>
+    </div></center>
+  {% endif %}
+</div>
+</div>
+  </div>
+  <div class="margin120bt"></div>
+</div>
+{% endblock %}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>WTS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static "css\tool.css" %}"/>
+  <link rel="shortcut icon" href="img/icon3.png">
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12" id="C">&nbsp;
+      <a class="btn btn-outline-warning" href="{% url 'index' %}" target="_blank" title="Home">Home</a>
+      <a class="btn btn-outline-warning" href="{% url 'listasins' %}"> Listview</a>
+      <a class="btn btn-outline-warning" href="https://sapp.amazon.com/Divein/" target="_blank"> DiveIn</a>
+      <a class="btn btn-outline-warning" id="asinhead" href="{% url 'listasins' %}">Currently Viewing: {{form.asin}} {{form.vendorCode}}</a>
+      <a class="btn btn-outline-warning" id="allocatedto" href="{% url 'walkapp:registerinfo' %}">Allocated to: {{form.allocatedto}} on {{form.allocationdate}}</a>
+
+      <a href="#contact"></a>
+    </div>
+  </div>
+
+
+  <!-- SECOND ROW -->
+<div class="row">
+       <!-- FIRST COLUMN -->
+  <div class="col-sm-2" id="A"><br>
+    <center><font face="calibri"><b><h1 id="E" title="Please select the image tab to cross check guidelines">IMAGE SECTION</h1></b></font></center><br>
+         <h4><b><center>MAIN
+         </center>
+         </b></h4>
+         <center><img src="http://ecx.images-amazon.com/images/I/41Ntv-oUN+L._AA200_.jpg" class="img-thumbnail" alt="41Ntv-oUN+L">
+         </center>
+         <br><br>
+
+         <h4><b><center>PT 01
+         </center>
+         <center><img src="http://ecx.images-amazon.com/images/I/51yCRzbKseL._AA200_.jpg" class="img-thumbnail" alt="51yCRzbKseL">
+         </center>
+         <br><br>
+
+         <h4><b><center>PT 02
+         </center>
+         <center><img src="http://ecx.images-amazon.com/images/I/51B2Ahq0t7L._AA200_.jpg" class="img-thumbnail" alt="51yCRzbKseL">
+         </center>
+         <br><br>
+
+         <h4><b><center>PT 03
+         </center>
+         <center><img src="http://ecx.images-amazon.com/images/I/51nO1QZR3yL._AA200_.jpg" class="img-thumbnail" alt="51yCRzbKseL">
+         </center>
+         <br><br>
+
+         <h4><b><center>PT 04
+         </center>
+         <center><img src="http://ecx.images-amazon.com/images/I/518zfZsQUJL._AA200_.jpg" class="img-thumbnail" alt="51yCRzbKseL">
+         </center>
+         <br><br>
+         </b></h4></b></h4></b></h4></b></h4>
+  </div>
+
+         <!-- SECOND COLUMN -->
+
+  <div class="col-sm-10" id="B">
+    <div class="tab">
+      <button class="tablinks" onclick="opentool(event, 'Images')">Images</button>
+      <button class="tablinks" onclick="opentool(event, 'Title')">Title</button>
+      <button class="tablinks" onclick="opentool(event, 'Bullet')">Bullet Point</button>
+      <!-- <button class="tablinks" onclick="opentool(event, 'Description')">Product Description</button> -->
+      <button class="tablinks" onclick="opentool(event, 'Category')">Category</button>
+      <button class="tablinks" onclick="opentool(event, 'Brand')">Brand Name</button>
+      <button class="tablinks" onclick="opentool(event, 'Release')">Release Date</button>
+      <button class="tablinks" onclick="opentool(event, 'A+')">A+ Content</button>
+      <button class="tablinks" onclick="opentool(event, 'Variation')">Variation</button>
+      <button class="tablinks" onclick="opentool(event, 'Keywords')">Search Terms</button>
+      <button class="tablinks" onclick="opentool(event, 'Orphan')">Orphan ASINs</button>
+      </div>
+
+      <div id="Images" class="tabcontent">
+        <div class="jumbotron">
+          <form method="POST">{% csrf_token %}
+          <!-- <p><a class="btn btn-outline-warning" id="asintitle" href="{% url 'listasins' %}">Current Title (Do not edit): {{form.item_name}}</a></p>
+          <hr class="my-4"> -->
+          <!-- {{form.asin}} {{form.vendorCode}}{{form.allocatedto}}  {{form.allocationdate}} -->
+          <p><h5>ASIN has main image: {{form.asinmainimage}}</h5></p>
+          <p><h5>Your Comments: {{form.comment8}}</h5> </p>
+          <hr class="my-4">
+          <p><h5>Main image has a white background?: {{form.asinmainimagewhitebg}}</h5></p>
+          <p><h5>Your Comments: {{form.comment9}}</h5> </p>
+          <hr class="my-4">
+          <p><h5>The main image does not have Borders, watermarks, text, or other decorations?: {{form.asinimageborderwatermanrtextcheck}}</h5></p>
+          <p><h5>Your Comments: {{form.comment10}}</h5> </p>
+          <hr class="my-4">
+          <p><h5>Images match what the title says the item is: {{form.asinimagematchtitle}}</h5></p>
+          <p><h5>Your Comments: {{form.comment11}}</h5> </p>
+          <hr class="my-4">
+          <p><h5>Is the image consistent with product color and pack size?: {{form.asinimagematchcolorsize}}</h5></p>
+          <p><h5>Your Comments: {{form.comment12}}</h5> </p>
+          <hr class="my-4">
+          <p><h5>There are no Image place holders for images? (with text such as temporary image or no image available): {{form.asinimageplaceholdercheck}}</h5></p>
+          <p><h5>Your Comments: {{form.comment13}}</h5> </p>
+          <hr class="my-4">
+          <p><h5>Images do not contain graphs of product ratings: {{form.asinimagegraphratings}}</h5></p>
+          <p><h5>Your Comments: {{form.comment14}}</h5> </p>
+          <hr class="my-4">
+          <p><h5>Image does not have any Promotional text such as sale or free ship: {{form.asinimagepromotextcheck}}</h5></p>
+          <p><h5>Your Comments: {{form.comment15}}</h5> </p>
+          <hr class="my-4">
+          <p><h5>Do the images depict what a customer would expect to receive if they made a purchase? [Other products, items or accessories that are not part of the product listing; only include exactly what the customer is buying]: {{form.asinimagecustomerdepict}}</h5></p>
+          <p><h5>Your Comments: {{form.comment16}}</h5> </p>
+        </div>
+
+
+
+        <div class="important">
+        {{form.asin}} {{form.vendorCode}} {{form.allocatedto}} on {{form.allocationdate}}
+        </div>
+
+      </div><!-- images -->
+
+
+      <div id="Title" class="tabcontent">
+        <div class="jumbotron">
+          <p><a class="btn btn-outline-warning" id="asintitle" href="{% url 'listasins' %}">Current Title (Do not edit): {{form.item_name}}</a></p>
+          <hr class="my-4">
+
+          <p><h5>Does the title correctly reflect the product on the detail page?: {{form.asinreflectproduct}}</h5></p>
+          <p><h5>Your Comments: {{form.comment5}}</h5> </p>
+          <hr class="my-4">
+          <p><h5>There is no mismatch between related attributes (Brand Name, Color, Unit Count and Number of Items): {{form.asinnomismatchbtwnattributes}}</h5></p>
+          <p><h5>Your Comments: {{form.comment6}}</h5> </p>
+          <hr class="my-4">
+          <p><h5>Title fits the general guideline of: Brand Name – Model no/style no – Product Type- Variation attributes (Size, Color, Pattern, & Hand orientation)?: {{form.asintitleguideline}}</h5></p>
+          <p><h5>Your Comments: {{form.comment7}}</h5> </p>
+          <hr class="my-4">
+
+        </div>
+      </div><!-- title -->
+
+
+      <div id="Bullet" class="tabcontent">
+        <div class="jumbotron">
+        <div class="row">
+          <div class="col-sm-4" id="Y"> <br><center>
+            <p><a class="btn btn-outline-warning" id="asinbullet" href="{% url 'listasins' %}">Bullet Point 1: {{form.bullet_point1}}</a></p>
+            <p><a class="btn btn-outline-warning" id="asinbullet" href="{% url 'listasins' %}">Bullet Point 2: {{form.bullet_point2}}</a></p>
+            <p><a class="btn btn-outline-warning" id="asinbullet" href="{% url 'listasins' %}">Bullet Point 3: {{form.bullet_point3}}</a></p>
+            <p><a class="btn btn-outline-warning" id="asinbullet" href="{% url 'listasins' %}">Bullet Point 4: {{form.bullet_point4}}</a></p>
+            <p><a class="btn btn-outline-warning" id="asinbullet" href="{% url 'listasins' %}">Bullet Point 5: {{form.bullet_point5}}</a></p>
+            <p><a class="btn btn-outline-warning" id="asinbullet" href="{% url 'listasins' %}">Bullet Point 6: {{form.bullet_point6}}</a></p>
+            <p><a class="btn btn-outline-warning" id="asinbullet" href="{% url 'listasins' %}">Bullet Point 7: {{form.bullet_point7}}</a></p>
+            <p><a class="btn btn-outline-warning" id="asinbullet" href="{% url 'listasins' %}">Bullet Point 8: {{form.bullet_point8}}</a></p>
+          </center>
+          </div>
+          <div class="col-sm-8" id="Y"> <br>
+
+            <p><h5>Is the content relevant to the ASIN?: {{form.asinbulltpointrelevant}}</h5></p>
+            <p><h5>Your Comments: {{form.comment19}}</h5> </p><br>
+
+            <p><h5>Does the Bullets Include Warranty info if applicable: {{form.asinbulletwarrantyinfo}}</h5></p>
+            <p><h5>Your Comments: {{form.comment20}}</h5> </p><br>
+
+            <p><h5>Is the bullet point Short Crisp; no vague statements: {{form.asinbulletshort}}</h5></p>
+            <p><h5>Your Comments: {{form.comment21}}</h5> </p><br>
+
+            <p><h5>Are Numbers written as numerals (1, 2, 3, etc.)?: {{form.asinbulletnumerals}}</h5></p>
+            <p><h5>Your Comments: {{form.comment22}}</h5> </p><br>
+            </div>
+          </div>
+        </div>
+      </div><!-- bullet -->
+
+      <!-- <div id="Description" class="tabcontent">
+        Product Description is full automated
+      </div> -->
+      <div id="Category" class="tabcontent">
+        <div class="jumbotron">
+
+          <p><a class="btn btn-outline-warning" id="asincategory" href="{% url 'listasins' %}">Current Category: {{form.asincurrentcategory}}</a></p>
+          <hr class="my-4">
+          <p><h5>Does vendor product appear under correct category?: {{form.asincorrectcategory}}</h5></p>
+          <p><h5>Your Comments: {{form.comment4}}</h5> </p><br>
+
+        </div>
+      </div><!-- category -->
+
+      <div id="Brand" class="tabcontent">
+        <div class="jumbotron">
+
+          <p><a class="btn btn-outline-warning" id="asinbrand" href="{% url 'listasins' %}">Current Brandname: {{form.brand_name}}</a></p>
+          <hr class="my-4">
+          <p><h5>Is the brand name accurate/correct?  (Check 'verified brand' from Bonsai): {{form.asinbrandnamecorrect}}</h5></p>
+          <p><h5>Your Comments: {{form.comment17}}</h5> </p><br>
+
+          <p><h5>Does the Brand hyperlink link to an Amazon Brand Store or a search result page pre-populated with the brand’s ASINs: {{form.asinbrandhyperlink}}</h5></p>
+          <p><h5>Your Comments: {{form.comment18}}</h5> </p><br>
+
+        </div>
+      </div><!-- brand -->
+
+      <div id="Release" class="tabcontent">
+        <div class="jumbotron">
+
+          <p><a class="btn btn-outline-warning" id="asinbrand" href="{% url 'listasins' %}">Current Sitemessage: {{form.asinsitemsg}}</a></p>
+          <hr class="my-4">
+          <p><h5>Product does not advertise a generic or future release date, but indicates that it is currently buyable: {{form.asinreleasedate1}}</h5></p>
+          <p><h5>Your Comments: {{form.comment23}}</h5> </p><br>
+
+        </div>
+      </div><!-- Release -->
+
+      <div id="A+" class="tabcontent">
+        <div class="jumbotron">
+
+          <hr class="my-4">
+          <p><h5>AsinA+status: {{form.asinsiteadescstatus}}</h5></p>
+          <p><h5>Your Comments: {{form.comment29}}</h5> </p><br>
+          <hr class="my-4">
+          <p><h5>Does the product have A+ Content?: {{form.asinapluscontent}}</h5></p>
+          <p><h5>Your Comments: {{form.comment30}}</h5> </p><br>
+          <hr class="my-4">
+          <p><h5>A+ content is relevant to the product: {{form.asinrelevantproduct}}</h5></p>
+          <p><h5>Your Comments: {{form.comment31}}</h5> </p><br>
+
+        </div>
+      </div> <!-- A+content -->
+
+      <div id="Variation" class="tabcontent">
+        <div class="jumbotron">
+         <p><a class="btn btn-outline-warning" id="asinbrand" href="{% url 'listasins' %}">Current Colorname: {{form.color_name}}</a></p>
+          <p><a class="btn btn-outline-warning" id="asinbrand" href="{% url 'listasins' %}">Current Sizename: {{form.size_name}}</a></p>
+          <hr class="my-4">
+          <p><h5>Variations are appropriate to the parent ASIN and not separate products all together: {{form.asinvariationcheck}}</h5></p>
+          <p><h5>Your Comments: {{form.comment24}}</h5> </p><br>
+          <hr class="my-4">
+          <p><h5>Color name is correct and has the same name as the correct child ASIN: {{form.asincolorname}}</h5></p>
+          <p><h5>Your Comments: {{form.comment25}}</h5> </p><br>
+          <hr class="my-4">
+          <p><h5>Size is correct and spelled correctly Ex: SMALL : {{form.asinsizecheck}}</h5></p>
+          <p><h5>Your Comments: {{form.comment27}}</h5> </p><br>
+          <hr class="my-4">
+          <p><h5>There are not multiple variations of the same word (example: with different spelling): {{form.asinvariationword}}</h5></p>
+          <p><h5>Your Comments: {{form.comment34}}</h5> </p><br>
+
+        </div>
+      </div>
+
+      <div id="Keywords" class="tabcontent">
+        <div class="jumbotron">
+        <p><a class="btn btn-outline-warning" id="asinbrand" href="{% url 'listasins' %}">Current SiteStatus: {{form.Asinsitestatus}}</a></p>
+        <p><a class="btn btn-outline-warning" id="asinbrand" href="{% url 'listasins' %}">Current Keywords: {{form.asin_subject_keywords}}</a></p>
+        <hr class="my-4">
+        <p><h5>The ASIN is searchable in customer search bar.(If not, open up a Buyability Troubleshooting task for the ASIN): {{form.asinsearchable}}</h5></p>
+        <p><h5>Your Comments: {{form.comment1}}</h5> </p><br>
+        <hr class="my-4">
+        <p><h5>Does the ASIN having Retail Contribution?(If the ASIN doesn’t have retail contribution then don’t proceed for further audit): {{form.asinretailcontribution}}</h5></p>
+        <p><h5>Your Comments: {{form.comment2}}</h5> </p><br>
+        <hr class="my-4">
+        <p><h5>Does the ASIN is Obselete? (If the ASIN is Obselete then don’t proceed for further audit): {{form.asinobsolete}}</h5></p>
+        <p><h5>Your Comments: {{form.comment3}}</h5> </p><br>
+        <hr class="my-4">
+        <p><h5>There are keywords for this ASIN. (if no, add some): {{form.asinkeyword}}</h5></p>
+        <p><h5>Your Comments: {{form.comment33}}</h5> </p><br>
+
+        <hr class="my-4">
+        <p><h5>ASIN has a leaf node: {{form.asinleafnode}}</h5></p>
+        <p><h5>Your Comments: {{form.comment35}}</h5> </p><br>
+
+        </div>
+      </div><!-- menu2 -->
+
+      <div id="Orphan" class="tabcontent">
+        <div class="jumbotron">
+          <p><h5>Product is not inappropriate: {{form.asinappropriate}}</h5></p>
+          <p><h5>Your Comments: {{form.comment32}}</h5> </p><br>
+
+          <p><h5>ASIN is not an orphan ASIN: {{form.asinnotorphan}}</h5></p>
+          <p><h5>Your Comments: {{form.comment28}}</h5> </p><br>
+        </div> <br>
+
+
+          <div class="alert alert-danger" role="alert">
+            <center><h3>If clicking save does not take you to allocation page, you have missed a mandatory field. Check for red highlighted field</h3></center>
+              <div class="formsubmit">
+                  <input type="submit" class="btn btn-primary" value="Save" id="formsubmit">
+              </div>
+          </div>
+        </form>
+      </div>
+
+
+<script type="text/javascript" src="{% static "js\tool.js"  %}"></script>
+<script src="{% static "js\tool1.js"  %}"></script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+
+</body>
+</head>
+</html>

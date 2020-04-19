@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{% static "image\icon3.png" %}">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"> -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css\index.css" %}">
+    <title>Walk The Store</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="navid">
+      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+       <a class="navbar-brand" href="#" ><img src="{% static "image\wts.png" %}" width="30" height="30" title="WTS"></a>
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+
+          </li>
+        </ul>
+      </div>
+
+      <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="{% url 'index' %}" id="wts">Walk The Store</a>
+      </div>
+
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+          <b></b>
+          {% if user.is_authenticated and user.is_superuser and user.is_staff %}
+          <!-- <li class="nav-item">  <a class="nav-link" id="id" href= ><span class="glyphicon glyphicon-ok"></span><strong>You're Registered</strong></a>  </li> -->
+          <li class="nav-item">  <a class="nav-link" id="id1" href="{% url 'walkapp:registerinfo' %}"><span class="glyphicon glyphicon-user"></span><strong>Welcome {{user.username}}</strong></a></li>
+          <li class="nav-item">  <a class="nav-link" href="{% url 'index' %}" id="id"> <img src={% static "image\homepage.png" %} width="30" height="30" title="home"></a>
+          <li class="nav-item"><a class="nav-link" id="id" href="https://accolades.corp.amazon.com/profile/kragha" target="_blank" title="Like this design? Please send Accolade"><img src="{% static "image\like.png" %}" width="30" height="30" title="Like it? please send an accolade to the designed"></a></li>
+          <li class="nav-item">  <a class="nav-link" id="id" href="{% url 'upload' %}"><img src="{% static "image\outbox.png" %}" width="30" height="30" title="Upload file"></a></li>
+          <li class="nav-item">  <a class="nav-link" id="id" href= "{% url 'tool' %}"> <img src="{% static "image\icon3.png" %}" width="30" height="30" title="Model tool"></a></li>
+          <li class="nav-item">  <a class="nav-link" id="id" href="{% url 'admin:index' %}"><img src="{% static "image\admin.png" %}" width="30" height="30" title="Go to ADMIN page"></a></li>
+          <li class="nav-item">  <a class="nav-link" id="id" href="{% url 'listasins' %}"> <img src="{% static "image\allocation.jpg" %}" width="30" height="30" title="Check your allocation"><span class="num">{{wts_list.count}}{{tableinfo.count}}</span></a></li>
+          <li class="nav-item">  <a class="nav-link" id="id" href="{% url 'walkapp:log_out' %}"><img src="{% static "image\logout.png" %}" width="30" height="30" alt="" title="Logout here"></a>  </li>
+          {% elif user.is_authenticated and  user.is_staff %}
+          <!-- <li class="nav-item">  <a class="nav-link" id="id" href= ><span class="glyphicon glyphicon-ok"></span><strong>You're Registered</strong></a>  </li> -->
+          <li class="nav-item">  <a class="nav-link" id="id1" href="{% url 'walkapp:registerinfo' %}"><span class="glyphicon glyphicon-user"></span><strong>Welcome {{user.username}}</strong></a></li>
+          <li class="nav-item"><a class="nav-link" id="id" href="https://accolades.corp.amazon.com/profile/kragha" target="_blank" title="Like this design? Please send Accolade"><img src="{% static "image\like.png" %}" width="30" height="30" title="Like it? please send an accolade to the designed"></a></li>
+          <li class="nav-item">  <a class="nav-link" id="id" href="{% url 'upload' %}"><img src="{% static "image\outbox.png" %}" width="30" height="30" title="Upload file"></a></li>
+          <li class="nav-item">  <a class="nav-link" href="{% url 'index' %}" id="id"> <img src={% static "image\homepage.png" %} width="30" height="30" title="home"></a>
+          <li class="nav-item">  <a class="nav-link" id="id" href= "{% url 'tool' %}"> <img src="{% static "image\icon3.png" %}" width="30" height="30" title="Model tool"></a></li>
+          <li class="nav-item">  <a class="nav-link" id="id" href="{% url 'admin:index' %}"><img src="{% static "image\admin.png" %}" width="30" height="30" title="Go to ADMIN page"></a></li>
+          <li class="nav-item">  <a class="nav-link" id="id" href="{% url 'listasins' %}"> <img src="{% static "image\allocation.jpg" %}" width="30" height="30" title="Check your allocation"><span class="num">{{wts_list.count}}{{tableinfo.count}}</span></a>  </li>
+          <li class="nav-item">  <a class="nav-link" id="id" href="{% url 'walkapp:log_out' %}"><img src="{% static "image\logout.png" %}" width="30" height="30" alt="" title="Logout here"></a>  </li>
+          {% elif user.is_authenticated %}
+          <!-- <li class="nav-item">  <a class="nav-link" id="id" href=><span class="glyphicon glyphicon-ok"></span>You're Registered</a>  </li> -->
+          <li class="nav-item">  <a class="nav-link" id="id1" href="{% url 'walkapp:registerinfo' %}"><span class="glyphicon glyphicon-user"></span>Welcome {{user.username}}</a>  </li>
+          <li class="nav-item"><a class="nav-link" id="id" href="https://accolades.corp.amazon.com/profile/kragha" target="_blank" title="Like this design? Please send Accolade"><img src="{% static "image\like.png" %}" width="30" height="30" title="Like it? please send an accolade to the designed"></a></li>
+          <li class="nav-item">  <a class="nav-link" id="id" href="{% url 'listasins' %}"> <img src="{% static "image\allocation.jpg" %}" width="30" height="30" title="Check your allocation"><span class="num">{{wts_list.count}}{{tableinfo.count}}</span></a>  </li>
+          <li class="nav-item">  <a class="nav-link" id="id" href="{% url 'walkapp:log_out' %}"> <img src="{% static "image\logout.png" %}" width="30" height="30"alt="" title="Logout here"></a>  </li>
+          {% else %}
+          <li class="nav-item"><a class="nav-link" id="id" href="https://accolades.corp.amazon.com/profile/kragha" target="_blank" title="Like this design? Please send Accolade"><img src="{% static "image\like.png" %}" width="30" height="30" title="Like it? please send an accolade to the designed"></a></li>
+          <li class="nav-item">  <a class="nav-link" href="{% url 'walkapp:register' %}" title="Please register here" id="id"> <img src="{% static "image\registration.png" %}" width="30" height="30" title="Register here"> </a>  </li>
+          <li class="nav-item">  <a class="nav-link" href="{% url 'walkapp:log_user' %}" id="id"> <img src="{% static "image\login.png" %}" width="30" height="30" title="Login here">  </a>  </li>
+          {% endif %}
+        </ul>
+    </nav>
+
+
+
+{% block body_block %}
+
+{% endblock %}
+
+
+
+<div class="footer-copyright text-center py-3" id="font">2020 Copyright: Designed & Devoloped by
+    <a href="mailto:kragha@amazon.com?Subject=" target="_top" id="font1">kragha@amazon.com</a>
+  </body>
+</html>
